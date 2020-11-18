@@ -1,0 +1,26 @@
+{
+  "name": "@goori-soft/observable",
+  "version": "1.0.0",
+  "description": "Extensible class for observable objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goori-soft/observable.git"
+  },
+  "keywords": [
+    "node",
+    "obsevable",
+    "javascript",
+    "extensible",
+    "class"
+  ],
+  "author": "Goori Soft Studio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goori-soft/observable/issues"
+  },
+  "homepage": "https://github.com/goori-soft/observable#readme"
+}
