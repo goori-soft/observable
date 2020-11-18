@@ -1,6 +1,6 @@
 {
   "name": "@goori-soft/observable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extensible class for observable objects",
   "main": "index.js",
   "scripts": {
