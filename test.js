@@ -1,24 +1,28 @@
 const Observable = require('./index.js');
 
 class MyClass extends Observable{
-    state = {
-        name: 'John',
-        age: 35
+
+    constructor(){
+        super();
+        this.state = {
+            name: 'John',
+            age: 35
+        }
     }
 
-    set = (newState)=>{
+    set(newState){
         if(typeof(newState) == 'object'){
             for(let i in newState){
                 this.state[i] = newState[i];
             }
-
+        
             this.notify(this.state);
         }
     }
 }
 
 const myInstance = new MyClass();
-const myFunc = (instance, state)=>{
+const myFunc = (state, instance)=>{
    console.log('The name is ', state.name);
 };
 

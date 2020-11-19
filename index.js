@@ -1,13 +1,11 @@
 module.exports = class Observable{
 
     constructor(){
-        //nothing to do;
+        this.observers = [];
+        this.subscribers = [];
     }
 
-    observers = [];
-    subscribers = [];
-
-    complete = (data)=>{
+    complete(data){
         this.observers.map((observer)=>{
             if(typeof(observer.complete) == 'function'){
                 observer.complete(data, this);
@@ -20,7 +18,7 @@ module.exports = class Observable{
     /**
      * Issues an error to observers
      */
-    error = (e)=>{
+    error(e){
         this.observers.map((observer)=>{
             if(typeof(observer.error) == 'function'){
                 observer.error(data, this);
@@ -34,7 +32,7 @@ module.exports = class Observable{
      * Transfer data to observers
      * @param {Any} data 
      */
-    next = (data)=>{
+    next(data){
         this.observers.map((observer)=>{
             if(typeof(observer.next) == 'function'){
                 observer.next(data, this);
@@ -48,7 +46,7 @@ module.exports = class Observable{
      * Notify every single subscribers function on this object
      * @param {Any} optionalParameter 
      */
-    notify = (optionalParameter)=>{
+    notify(optionalParameter){
         this.subscribers.map((f)=>{
             if(typeof(f) == 'function'){
                 let param = optionalParameter;
@@ -69,7 +67,7 @@ module.exports = class Observable{
      * Subscribe a function to the observable object
      * @param {Function} f 
      */
-    subscribe = (f)=>{
+    subscribe(f){
         if(!this.subscribers.includes(f) && typeof(f) == 'function'){
             this.subscribers.push(f);
         }
@@ -84,7 +82,7 @@ module.exports = class Observable{
      * Remove a function of the subscribers list
      * @param {Function} f 
      */
-    unsubscribe = (f)=>{
+    unsubscribe(f){
         this.subscribers = this.subscribers.filter((func)=>{
             if(func == f) return false;
             return true;
